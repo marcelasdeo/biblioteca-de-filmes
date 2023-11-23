@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import AppNavegacao from './src/AppNavegacao';
+// import AppNavegacao from './src/AppNavegacao';
+import TelaInicial from './src/components/TelaInicial';
 
 export default function App() {
   return (
-    <AppNavegacao />
+    <TelaInicial />
   );
 }
 
