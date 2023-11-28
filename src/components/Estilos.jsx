@@ -15,11 +15,22 @@ const styles = StyleSheet.create({
 		marginTop: 30,
 		marginBottom: 20,
 	},
-	container: {
+	containerLogo: {
 		backgroundColor: "red",
 		marginTop: 0,
 		width: "100vh",
-	}
+	},
+	scrollContainer: {
+		width: "85%",
+	},
+	itemsContainer: {
+		marginTop: 5,
+		padding: 20,
+		borderTopLeftRadius: 10,
+		borderTopRightRadius: 10,
+		alignItems: "stretch",
+		backgroundColor: "red",
+	},
 });
 
 export default styles;

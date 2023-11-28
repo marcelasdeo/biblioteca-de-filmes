@@ -5,7 +5,7 @@ export default function Formulario() {
 	return (
 		<View>
 			
-			<View style={styles.container}>
+			<View style={styles.containerLogo}>
 				<Text style={styles.logo}> MOVIES.LOG </Text>
 			</View>
 

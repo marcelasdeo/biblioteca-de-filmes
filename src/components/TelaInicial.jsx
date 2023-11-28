@@ -4,7 +4,7 @@ import styles from "./Estilos";
 export default function TelaInicial() {
     return (
         <View>
-            <View style={styles.container}>
+            <View style={styles.containerLogo}>
                 <Text style={styles.logo}> MOVIES.LOG </Text>
             </View>
             <Text style={styles.titulo}> O que tem visto? </Text>
