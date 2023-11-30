@@ -3,10 +3,29 @@ import * as React from 'react';
 import { RadioButton } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from "./Estilos";
+import { useEffect, useState } from "react";
 
 export default function Formulario({ navigation }) {
 	const [checked, setChecked] = React.useState('');
-	// navigation.navigate('Formulário')
+	const [nome, setNome] = useState('')
+	const [data, setData] = useState('')
+	const [nota, setNota] = useState('')
+
+	const handleButtonPress = async () => {
+		const itemLista = {
+			id: new Date().getTime(),
+			nome: nome,
+			data: data,
+			nota: parseInt(nota),
+		}
+
+		await salvarItem(itemLista)
+
+		setNome('')
+		setData('')
+		setNota('')
+		// navigation.navigate('Lista', itemLista)
+	}
 
 	return (
 		<View>
@@ -34,6 +53,8 @@ export default function Formulario({ navigation }) {
 
 				<TextInput
 					placeholder="Nome do filme"
+					value={nome}
+					onChangeText={(valor) => { setDescricao(valor) }}
 				/>
 
 				{/* 'Data em que assistiu':
@@ -42,9 +63,10 @@ export default function Formulario({ navigation }) {
 				*/}
 				<TextInput
 					placeholder="Data em que assistiu"
+					value={data}
 				/>
 
-				<DateTimePicker mode="time" />
+				{/* <DateTimePicker mode="time" /> */}
 
 				{/* 'Nota':
 					aparecer somente se o usuário selecionar 'Assistido' 
@@ -54,6 +76,7 @@ export default function Formulario({ navigation }) {
 				<TextInput
 					placeholder="Nota"
 					keyboardType="numeric"
+					value={nota}
 				/>
 
 				<TouchableOpacity>
