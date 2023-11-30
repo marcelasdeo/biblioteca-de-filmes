@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import styles from "./Estilos";
 
-export default function ListaAssistir({ navigation }) {
+export default function ListaAssistidos({ navigation }) {
 	// navigation.navigate('Para assistir')
 
     return (

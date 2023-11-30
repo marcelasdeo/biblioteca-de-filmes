@@ -6,7 +6,7 @@ import styles from "./Estilos";
 
 export default function Formulario({ navigation }) {
 	const [checked, setChecked] = React.useState('');
-	navigation.navigate('Formulário')
+	// navigation.navigate('Formulário')
 
 	return (
 		<View>
