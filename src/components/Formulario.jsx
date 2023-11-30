@@ -1,10 +1,15 @@
 import { Text, TouchableOpacity, View, TextInput } from "react-native";
+import * as React from 'react';
+import { RadioButton } from 'react-native-paper';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from "./Estilos";
 
 export default function Formulario() {
+	const [checked, setChecked] = React.useState('');
+
 	return (
 		<View>
-			
+
 			<View style={styles.containerLogo}>
 				<Text style={styles.logo}> MOVIES.LOG </Text>
 			</View>
@@ -12,16 +17,22 @@ export default function Formulario() {
 			<View>
 
 				{/* 'Assistido ou Para assistir':
-					input radio
+					value não aparece
 				*/}
-				<TextInput
-					placeholder="Data em que assistiu"
-					keyboardType=""
+
+				<RadioButton
+					value="Assistido"
+					status={checked === 'Assistido' ? 'checked' : 'unchecked'}
+					onPress={() => setChecked('Assistido')}
+				/>
+				<RadioButton
+					value="Para assistir"
+					status={checked === 'Para assistir' ? 'checked' : 'unchecked'}
+					onPress={() => setChecked('Para assistir')}
 				/>
 
 				<TextInput
 					placeholder="Nome do filme"
-					keyboardType=""
 				/>
 
 				{/* 'Data em que assistiu':
@@ -30,8 +41,9 @@ export default function Formulario() {
 				*/}
 				<TextInput
 					placeholder="Data em que assistiu"
-					keyboardType=""
 				/>
+
+				<DateTimePicker mode="time" />
 
 				{/* 'Nota':
 					aparecer somente se o usuário selecionar 'Assistido' 
@@ -40,7 +52,7 @@ export default function Formulario() {
 				*/}
 				<TextInput
 					placeholder="Nota"
-					keyboardType=""
+					keyboardType="numeric"
 				/>
 
 				<TouchableOpacity>
