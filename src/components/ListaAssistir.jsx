@@ -1,7 +1,9 @@
 
 import styles from "./Estilos";
 
-export default function ListaAssistir() {
+export default function ListaAssistir({ navigation }) {
+	navigation.navigate('Para assistir')
+	
     return (
         <View>
 

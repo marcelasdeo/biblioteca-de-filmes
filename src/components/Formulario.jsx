@@ -4,8 +4,9 @@ import { RadioButton } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from "./Estilos";
 
-export default function Formulario() {
+export default function Formulario({ navigation }) {
 	const [checked, setChecked] = React.useState('');
+	navigation.navigate('Formulário')
 
 	return (
 		<View>

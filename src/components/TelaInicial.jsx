@@ -1,7 +1,8 @@
 import { View, Text } from "react-native";
 import styles from "./Estilos";
 
-export default function TelaInicial() {
+export default function TelaInicial({ navigation }) {
+
     return (
         <View>
             <View style={styles.containerLogo}>

@@ -1,10 +1,7 @@
-// import AppNavegacao from './src/AppNavegacao';
-import TelaInicial from './src/components/TelaInicial';
-import Formulario from './src/components/Formulario';
+import AppNavegacao from './src/components/AppNavegacao';
 
 export default function App() {
   return (
-    // <TelaInicial />
-    <Formulario/>
+    <AppNavegacao/>
   );
 }

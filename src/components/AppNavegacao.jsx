@@ -1,49 +1,28 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
+// import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
-import { Text } from "react-native";
-
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-
+import * as React from 'react';
+import { Button, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import Formulario from "./Formulario";
-import Lista from "./Lista";
-const Tab = createBottomTabNavigator();
+import ListaAssistir from "./ListaAssistir";
+import TelaInicial from "./TelaInicial";
+
+const Drawer = createDrawerNavigator();
+
 export default function AppNavegacao() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          tabBarStyle: {
-            backgroundColor: "#121212",
-            borderTopColor: "transparent",
-          },
-          tabBarActiveTintColor: "white",
-          tabBarInactiveTintColor: "gray",
-          headerShown: false,
-        }}
-      >
-        <Tab.Screen
-          name="Lista"
-          component={Lista}
-          options={{
-            tabBarIcon: ({ focused, color, size }) => {
-              iconName = focused ? "view-list" : "view-list-outline";
-              size = focused ? size * 1.5 : size;
-              // Retornando a imagem
-              return (
-                <MaterialCommunityIcons
-                  name={iconName}
-                  size={size}
-                  color={color}
-                />
-              );
-            },
-            tabBarLabel: ({ focused }) =>
-              focused ? <></> : <Text style={{ color: "gray" }}>Lista</Text>,
-          }}
-        />
-        <Tab.Screen name="Formulario" component={Formulario} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-}
+    return (
+        <NavigationContainer>
+            <Drawer.Navigator initialRouteName="Tela inicial">
+                <Drawer.Screen name="Tela inicial" component={TelaInicial} />
+                <Drawer.Screen name="Formulário" component={Formulario} />
+                <Drawer.Screen name="Para assistir" component={ListaAssistir} />
+            </Drawer.Navigator>
+        </NavigationContainer>
+    );
+}   
+
+{/* <Button
+        onPress={() => navigation.navigate('Notifications')}
+        title="Go to notifications"
+      /> */}
