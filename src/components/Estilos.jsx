@@ -3,33 +3,45 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 	logo: {
 		color: "black",
-		fontSize: 30,
+		fontFamily: 'Futura-CondensedExtraBold',
+		fontSize: 28,
 		fontWeight: "bold",
-		marginTop: 30,
-		marginBottom: 20,
+		marginTop: 18,
+		marginBottom: 18,
+		letterSpacing: 10,
+		
 	},
 	titulo: {
 		color: "black",
+		fontFamily:"Futura-CondensedExtraBold",
 		fontSize: 20,
 		fontWeight: "bold",
 		marginTop: 30,
 		marginBottom: 20,
 	},
 	containerLogo: {
-		backgroundColor: "red",
+		backgroundColor: '#F1B187',
 		marginTop: 0,
 		width: "100vh",
+		textAlign: 'center',
+	},
+	title:{
+		fontWeight: "bold",
+		letterSpacing: 5,
+  		lineHeight: 44,
 	},
 	scrollContainer: {
-		width: "85%",
+		textAlign:"center",
 	},
 	itemsContainer: {
-		marginTop: 5,
+		margin: 10,
 		padding: 20,
-		borderTopLeftRadius: 10,
-		borderTopRightRadius: 10,
+		borderRadius: 12,
 		alignItems: "stretch",
-		backgroundColor: "red",
+		textAlign:"center",
+		backgroundColor:'#FFEDE2',
+		borderWidth: 2, 
+		borderColor:'F1B187',
 	},
 });
 
