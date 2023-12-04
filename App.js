@@ -1,8 +1,7 @@
-// import AppNavegacao from './src/components/AppNavegacao';
-import ListaAssistir from './src/components/ListaAssistir';
+import AppNavegacao from './src/components/AppNavegacao';
 
 export default function App() {
   return (
-    <ListaAssistir/>
+    <AppNavegacao/>
   );
 }
