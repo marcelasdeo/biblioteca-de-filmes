@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
 	containerLogo: {
 		backgroundColor: '#F1B187',
 		marginTop: 0,
-		width: "100vh",
 		textAlign: 'center',
 	},
 	title:{
