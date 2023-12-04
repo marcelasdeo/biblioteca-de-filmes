@@ -42,6 +42,13 @@ const styles = StyleSheet.create({
 		borderWidth: 2, 
 		borderColor:'F1B187',
 	},
+	container: {
+		backgroundColor: "#fdfdfd",
+		marginTop: 10,
+		borderRadius: 10,
+		width: "100%",
+		padding: 5
+	  },
 });
 
 export default styles;

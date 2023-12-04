@@ -3,7 +3,10 @@ import * as React from 'react';
 import { RadioButton } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from "./Estilos";
+
 import { useEffect, useState } from "react";
+import { salvarItemAssistidos } from "./dados";
+// import ItemListaAssistidos from "./ItemListaAssistidos";
 
 export default function Formulario({ navigation }) {
 	const [checked, setChecked] = React.useState('');
@@ -19,12 +22,14 @@ export default function Formulario({ navigation }) {
 			nota: parseInt(nota),
 		}
 
-		await salvarItem(itemLista)
+		await salvarItemAssistidos(itemLista)
 
 		setNome('')
 		setData('')
 		setNota('')
-		// navigation.navigate('Lista', itemLista)
+		
+		//navegação não funciona
+		navigation.navigate('ListaAssistidos', itemLista);
 	}
 
 	return (
@@ -54,7 +59,7 @@ export default function Formulario({ navigation }) {
 				<TextInput
 					placeholder="Nome do filme"
 					value={nome}
-					onChangeText={(valor) => { setDescricao(valor) }}
+					onChangeText={(valor) => { setNome(valor) }}
 				/>
 
 				{/* 'Data em que assistiu':
@@ -64,6 +69,7 @@ export default function Formulario({ navigation }) {
 				<TextInput
 					placeholder="Data em que assistiu"
 					value={data}
+					onChangeText={(valor) => { setData(valor) }}
 				/>
 
 				{/* <DateTimePicker mode="time" /> */}
@@ -73,13 +79,15 @@ export default function Formulario({ navigation }) {
 					adicionar img de 5 estrelas
 					cada estrela terá um id, para identificar a nota passada pelo usuário
 				*/}
+
 				<TextInput
 					placeholder="Nota"
 					keyboardType="numeric"
 					value={nota}
+					onChangeText={(valor) => { setNota(valor) }}
 				/>
 
-				<TouchableOpacity>
+				<TouchableOpacity onPress={handleButtonPress}>
 					<Text> Adicionar </Text>
 				</TouchableOpacity>
 			</View>
