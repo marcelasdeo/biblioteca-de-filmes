@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
 		marginTop: 18,
 		marginBottom: 18,
 		letterSpacing: 10,
-		
+
 	},
 	titulo: {
 		color: "black",
-		fontFamily:"Futura-CondensedExtraBold",
+		fontFamily: "Futura-CondensedExtraBold",
 		fontSize: 20,
 		fontWeight: "bold",
 		marginTop: 30,
@@ -24,23 +24,23 @@ const styles = StyleSheet.create({
 		marginTop: 0,
 		textAlign: 'center',
 	},
-	title:{
+	title: {
 		fontWeight: "bold",
 		letterSpacing: 5,
-  		lineHeight: 44,
+		lineHeight: 44,
 	},
 	scrollContainer: {
-		textAlign:"center",
+		textAlign: "center",
 	},
 	itemsContainer: {
 		margin: 10,
 		padding: 20,
 		borderRadius: 12,
 		alignItems: "stretch",
-		textAlign:"center",
-		backgroundColor:'#FFEDE2',
-		borderWidth: 2, 
-		borderColor:'F1B187',
+		textAlign: "center",
+		backgroundColor: '#FFEDE2',
+		borderWidth: 2,
+		borderColor: 'F1B187',
 	},
 	container: {
 		backgroundColor: "#fdfdfd",
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		width: "100%",
 		padding: 5
-	  },
+	},
 });
 
 export default styles;

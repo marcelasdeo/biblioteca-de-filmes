@@ -17,14 +17,9 @@ export default function AppNavegacao() {
             <Drawer.Navigator initialRouteName="Tela inicial">
                 <Drawer.Screen name="Tela inicial" component={TelaInicial} />
                 <Drawer.Screen name="Formulário" component={Formulario} />
-                <Drawer.Screen name="Assistidos" component={ListaAssistidos} />
+                <Drawer.Screen name="Lista de Assistidos" component={ListaAssistidos} />
                 <Drawer.Screen name="Para assistir" component={ListaAssistir} />
             </Drawer.Navigator>
         </NavigationContainer>
     );
-}   
-
-{/* <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      /> */}
+} 

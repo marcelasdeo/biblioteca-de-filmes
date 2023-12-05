@@ -5,14 +5,24 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from "./Estilos";
 
 import { useEffect, useState } from "react";
-import { salvarItemAssistidos } from "./dados";
-// import ItemListaAssistidos from "./ItemListaAssistidos";
+import { salvarItemAssistidos, editarItemAssistido } from "./dados";
 
-export default function Formulario({ navigation }) {
+export default function Formulario({ navigation, route }) {
+
+	const editMode = Boolean(route.params);
+	const editItem = route.params;
+
 	const [checked, setChecked] = React.useState('');
-	const [nome, setNome] = useState('')
-	const [data, setData] = useState('')
-	const [nota, setNota] = useState('')
+	const [nome, setNome] = useState(editMode ? editItem.nome : '')
+	const [data, setData] = useState(editMode ? String(editItem.data) : '')
+	const [nota, setNota] = useState(editMode ? String(editItem.nota) : '')
+
+	useEffect(() => {
+		setNome(editMode ? editItem.nome : '');
+		setData(editMode ? String(editItem.data) : '');
+		setNota(editMode ? String(editItem.nota) : '');
+	},
+		[editItem]);
 
 	const handleButtonPress = async () => {
 		const itemLista = {
@@ -22,14 +32,17 @@ export default function Formulario({ navigation }) {
 			nota: parseInt(nota),
 		}
 
-		await salvarItemAssistidos(itemLista)
+		if (!editMode) await salvarItemAssistidos(itemLista);
+		else {
+			itemLista.id = editItem.id;
+			await editarItemAssistido(itemLista);
+		}
 
 		setNome('')
 		setData('')
 		setNota('')
-		
-		//navegação não funciona
-		navigation.navigate('ListaAssistidos', itemLista);
+		route.params = null;
+		navigation.navigate('Lista de Assistidos', itemLista);
 	}
 
 	return (
@@ -66,29 +79,27 @@ export default function Formulario({ navigation }) {
 					aparecer somente se o usuário selecionar 'Assistido' 
 					input para data
 				*/}
+				{/* <DateTimePicker mode="time" /> */}
 				<TextInput
 					placeholder="Data em que assistiu"
 					value={data}
 					onChangeText={(valor) => { setData(valor) }}
 				/>
 
-				{/* <DateTimePicker mode="time" /> */}
-
 				{/* 'Nota':
 					aparecer somente se o usuário selecionar 'Assistido' 
 					adicionar img de 5 estrelas
 					cada estrela terá um id, para identificar a nota passada pelo usuário
 				*/}
-
 				<TextInput
 					placeholder="Nota"
 					keyboardType="numeric"
 					value={nota}
-					onChangeText={(valor) => { setNota(valor) }}
+					onChangeText={setNota}
 				/>
 
 				<TouchableOpacity onPress={handleButtonPress}>
-					<Text> Adicionar </Text>
+					{!editMode ? <Text>Salvar</Text> : <Text>Alterar</Text>}
 				</TouchableOpacity>
 			</View>
 		</View>

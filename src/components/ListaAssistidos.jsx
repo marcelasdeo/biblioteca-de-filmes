@@ -4,7 +4,7 @@ import styles from "./Estilos";
 import ItemListaAssistidos from "./ItemListaAssistidos";
 import { getLista } from "./dados";
 
-export default function ListaAssistidos({ navigation }, props) {
+export default function ListaAssistidos(props) {
 	const [itens, setItens] = useState([]);
 
 	useEffect(() => {
@@ -21,7 +21,6 @@ export default function ListaAssistidos({ navigation }, props) {
 			<Text style={styles.title}> Filmes Assistidos </Text>
 
 			<ScrollView
-				style={styles.scrollContainer}
 				contentContainerStyle={styles.itemsContainer}
 			>
 				{itens.map((item) => (
