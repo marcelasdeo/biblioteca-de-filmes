@@ -6,6 +6,7 @@ import styles from "./Estilos";
 
 import { useEffect, useState } from "react";
 import { salvarItemAssistidos, editarItemAssistido } from "./dados";
+import RNDateTimePicker from "@react-native-community/datetimepicker";
 
 export default function Formulario({ navigation, route }) {
 
@@ -14,12 +15,12 @@ export default function Formulario({ navigation, route }) {
 
 	const [checked, setChecked] = React.useState('');
 	const [nome, setNome] = useState(editMode ? editItem.nome : '')
-	const [data, setData] = useState(editMode ? String(editItem.data) : '')
+	const [data, setData] = useState(editMode ? Date(editItem.data) : '')
 	const [nota, setNota] = useState(editMode ? String(editItem.nota) : '')
 
 	useEffect(() => {
 		setNome(editMode ? editItem.nome : '');
-		setData(editMode ? String(editItem.data) : '');
+		setData(editMode ? Date(editItem.data) : '');
 		setNota(editMode ? String(editItem.nota) : '');
 	},
 		[editItem]);
@@ -28,7 +29,7 @@ export default function Formulario({ navigation, route }) {
 		const itemLista = {
 			id: new Date().getTime(),
 			nome: nome,
-			data: data,
+			data: Date(data),
 			nota: parseInt(nota),
 		}
 
@@ -77,13 +78,17 @@ export default function Formulario({ navigation, route }) {
 
 				{/* 'Data em que assistiu':
 					aparecer somente se o usuário selecionar 'Assistido' 
-					input para data
+					input para data apresenta alguns problemas:
+						formatação errada
+						valor não é o inserido pelo usuário
 				*/}
-				{/* <DateTimePicker mode="time" /> */}
-				<TextInput
-					placeholder="Data em que assistiu"
-					value={data}
-					onChangeText={(valor) => { setData(valor) }}
+
+				<Text> Data em que assistiu: </Text>
+				<RNDateTimePicker
+					mode="date"
+					value={new Date()}
+					maximumDate={new Date()}
+					dateFormat="day month year"
 				/>
 
 				{/* 'Nota':
