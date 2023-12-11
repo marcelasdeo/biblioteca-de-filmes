@@ -19,6 +19,12 @@ https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-sta
 https://stackoverflow.com/questions/77272914/useanimatedstyle-was-used-without-a-dependency-array-or-babel-plugin-please-e
 
 
+RADIO BUTTON:
+
+npm install react-native-paper
+
+https://callstack.github.io/react-native-paper/docs/components/RadioButton/
+
 
 METRO: (?)
 

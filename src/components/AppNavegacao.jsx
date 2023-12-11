@@ -17,8 +17,8 @@ export default function AppNavegacao() {
             <Drawer.Navigator initialRouteName="Tela inicial">
                 <Drawer.Screen name="Tela inicial" component={TelaInicial} />
                 <Drawer.Screen name="Formulário" component={Formulario} />
-                <Drawer.Screen name="Lista de Assistidos" component={ListaAssistidos} />
-                <Drawer.Screen name="Para assistir" component={ListaAssistir} />
+                <Drawer.Screen name="Assistidos" component={ListaAssistidos} />
+                <Drawer.Screen name="Assistir" component={ListaAssistir} />
             </Drawer.Navigator>
         </NavigationContainer>
     );

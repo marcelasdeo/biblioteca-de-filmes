@@ -4,7 +4,8 @@ import { RadioButton } from 'react-native-paper';
 import styles from "./Estilos";
 
 import { useEffect, useState } from "react";
-import { salvarItemAssistidos, editarItemAssistido } from "./dados";
+import { salvarItemAssistido, editarItemAssistido } from "./dados";
+import { salvarItemAssistir, editarItemAssistir } from "./dados";
 
 export default function Formulario({ navigation, route }) {
 
@@ -12,36 +13,62 @@ export default function Formulario({ navigation, route }) {
 	const editItem = route.params;
 
 	const [checked, setChecked] = React.useState('Assistido');
-	const [nome, setNome] = useState(editMode ? editItem.nome : '')
-	const [data, setData] = useState(editMode ? Date(editItem.data) : '')
-	const [nota, setNota] = useState(editMode ? String(editItem.nota) : '')
+
+	const [nomeAssistido, setNomeAssistido] = useState(editMode ? editItem.nomeAssistido : '')
+	const [dataAssistido, setDataAssistido] = useState(editMode ? Date(editItem.dataAssistido) : '')
+	const [notaAssistido, setNotaAssistido] = useState(editMode ? String(editItem.notaAssistido) : '')
+
+	const [nomeAssistir, setNomeAssistir] = useState(editMode ? editItem.nomeAssistir : '')
 
 	useEffect(() => {
-		setNome(editMode ? editItem.nome : '');
-		setData(editMode ? Date(editItem.data) : '');
-		setNota(editMode ? String(editItem.nota) : '');
+		setNomeAssistido(editMode ? editItem.nomeAssistido : '');
+		setDataAssistido(editMode ? Date(editItem.dataAssistido) : '');
+		setNotaAssistido(editMode ? String(editItem.notaAssistido) : '')
+
+		setNomeAssistir(editMode ? editItem.nomeAssistir : '');
 	},
 		[editItem]);
 
-	const handleButtonPress = async () => {
-		const itemLista = {
-			id: new Date().getTime(),
-			nome: nome,
-			data: Date(data),
-			nota: parseInt(nota),
-		}
+	const handleButtonPressAssistido = async () => {
+		if (checked === 'Assistido') {
+			const itemListaAssistido = {
+				id: new Date().getTime(),
+				nomeAssistido: nomeAssistido,
+				dataAssistido: Date(dataAssistido),
+				notaAssistido: parseInt(notaAssistido),
+			}
 
-		if (!editMode) await salvarItemAssistidos(itemLista);
-		else {
-			itemLista.id = editItem.id;
-			await editarItemAssistido(itemLista);
-		}
+			if (!editMode) await salvarItemAssistido(itemListaAssistido);
+			else {
+				itemListaAssistido.id = editItem.id;
+				await editarItemAssistido(itemListaAssistido);
+			}
 
-		setNome('')
-		setData('')
-		setNota('')
-		route.params = null;
-		navigation.navigate('Lista de Assistidos', itemLista);
+			setNomeAssistido('')
+			setDataAssistido('')
+			setNotaAssistido('')
+			route.params = null;
+			navigation.navigate('Assistidos', itemListaAssistido);
+		}
+	}
+
+	const handleButtonPressAssistir = async () => {
+		if (checked === 'Assistir') {
+			const itemListaAssistir = {
+				id: new Date().getTime(),
+				nomeAssistir: nomeAssistir,
+			}
+
+			if (!editMode) await salvarItemAssistir(itemListaAssistir);
+			else {
+				itemListaAssistir.id = editItem.id;
+				await editarItemAssistir(itemListaAssistir);
+			}
+
+			setNomeAssistir('')
+			route.params = null;
+			navigation.navigate('Assistir', itemListaAssistir);
+		}
 	}
 
 	if (checked === 'Assistido') {
@@ -61,47 +88,42 @@ export default function Formulario({ navigation, route }) {
 						onPress={() => setChecked('Assistido')}
 					/>
 					<RadioButton.Item
-						value='Para assistir'
-						label='Para assistir'
-						status={checked === 'Para assistir' ? 'checked' : 'unchecked'}
-						onPress={() => setChecked('Para assistir')}
+						value='Assistir'
+						label='Assistir'
+						status={checked === 'Assistir' ? 'checked' : 'unchecked'}
+						onPress={() => setChecked('Assistir')}
 					/>
 
 					<TextInput
 						placeholder="Nome do filme"
-						value={nome}
-						onChangeText={(valor) => { setNome(valor) }}
+						value={nomeAssistido}
+						onChangeText={(valor) => { setNomeAssistido(valor) }}
 					/>
 
 					{/* 'Data em que assistiu':
-						aparecer somente se o usuário selecionar 'Assistido' 
-						input para data apresenta alguns problemas:
-							formatação errada
-							valor não é o inserido pelo usuário
+						input para data
 					*/}
-
 					<Text> Data em que assistiu: </Text>
 
 
 					{/* 'Nota':
-						aparecer somente se o usuário selecionar 'Assistido' 
 						adicionar img de 5 estrelas
 						cada estrela terá um id, para identificar a nota passada pelo usuário
 					*/}
 					<TextInput
 						placeholder="Nota"
 						keyboardType="numeric"
-						value={nota}
-						onChangeText={setNota}
+						value={notaAssistido}
+						onChangeText={setNotaAssistido}
 					/>
 
-					<TouchableOpacity onPress={handleButtonPress}>
+					<TouchableOpacity onPress={handleButtonPressAssistido}>
 						{!editMode ? <Text>Salvar</Text> : <Text>Alterar</Text>}
 					</TouchableOpacity>
 				</View>
 			</View>
 		);
-	} else if (checked === 'Para assistir') {
+	} else if (checked === 'Assistir') {
 		return (
 			<View>
 
@@ -118,19 +140,19 @@ export default function Formulario({ navigation, route }) {
 						onPress={() => setChecked('Assistido')}
 					/>
 					<RadioButton.Item
-						value='Para assistir'
-						label='Para assistir'
-						status={checked === 'Para assistir' ? 'checked' : 'unchecked'}
-						onPress={() => setChecked('Para assistir')}
+						value='Assistir'
+						label='Assistir'
+						status={checked === 'Assistir' ? 'checked' : 'unchecked'}
+						onPress={() => setChecked('Assistir')}
 					/>
 
 					<TextInput
 						placeholder="Nome do filme"
-						value={nome}
-						onChangeText={(valor) => { setNome(valor) }}
+						value={nomeAssistir}
+						onChangeText={(valor) => { setNomeAssistir(valor) }}
 					/>
 
-					<TouchableOpacity onPress={handleButtonPress}>
+					<TouchableOpacity onPress={handleButtonPressAssistir}>
 						{!editMode ? <Text>Salvar</Text> : <Text>Alterar</Text>}
 					</TouchableOpacity>
 				</View>

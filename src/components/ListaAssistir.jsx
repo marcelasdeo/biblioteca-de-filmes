@@ -1,24 +1,33 @@
+import { useEffect, useState } from "react";
 import { View, Text, ScrollView } from "react-native";
 import styles from "./Estilos";
+import ItemListaAssistir from "./ItemListaAssistir";
+import { getListaAssistir } from "./dados";
 
-export default function ListaAssistir({ navigation }) {
-	// navigation.navigate('Para assistir')
+export default function ListaAssistir(props) {
+	const [itens, setItens] = useState([]);
 
-    return (
-        <View>
+	useEffect(() => {
+		getListaAssistir().then((lista) => setItens(lista))
+	}, [itens, props])
 
-            <View style={styles.containerLogo}>
+	return (
+		<View>
+
+			<View style={styles.containerLogo}>
 				<Text style={styles.logo}> MOVIES.LOG </Text>
 			</View>
 
-			<Text style={styles.title}> Filmes para Assistir </Text>
+			<Text style={styles.title}> Filmes Para Assistir </Text>
 
 			<ScrollView
-				style={styles.scrollContainer}
 				contentContainerStyle={styles.itemsContainer}
 			>
-				<Text> Filme </Text>
+				{itens.map((item) => (
+					<ItemListaAssistir key={item.id} item={item} navigation={props.navigation} />
+				))}
+				{itens.length == 0 && <Text style={styles.text}>Lista Vazia</Text>}
 			</ScrollView>
 		</View>
-    );
+	);
 }

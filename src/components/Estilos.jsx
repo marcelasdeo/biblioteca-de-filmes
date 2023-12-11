@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 	logo: {
 		color: "black",
-		// fontFamily: 'Futura-CondensedExtraBold',
+		fontFamily: 'Futura-CondensedExtraBold',
 		fontSize: 28,
 		fontWeight: "bold",
 		marginTop: 18,
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 	},
 	titulo: {
 		color: "black",
-		// fontFamily: "Futura-CondensedExtraBold",
+		fontFamily: "Futura-CondensedExtraBold",
 		fontSize: 20,
 		fontWeight: "bold",
 		marginTop: 30,

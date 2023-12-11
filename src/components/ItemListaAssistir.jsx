@@ -1,9 +1,9 @@
 import { Alert } from "react-native";
 import { Text, TouchableOpacity, View } from "react-native";
 import styles from "./Estilos";
-import { deletarItemAssistido } from "./dados"
+import { deletarItemAssistir } from "./dados"
 
-export default function ItemListaAssistidos({ item, navigation }) {
+export default function ItemListaAssistir({ item, navigation }) {
 
 	function alertConfirma(item) {
 
@@ -13,7 +13,7 @@ export default function ItemListaAssistidos({ item, navigation }) {
 			[
 				{
 					text: 'Sim',
-					onPress: () => deletarItemAssistido(item),
+					onPress: () => deletarItemAssistir(item),
 					style: 'default',
 				},
 				{
@@ -28,20 +28,18 @@ export default function ItemListaAssistidos({ item, navigation }) {
 
 	}
 
-	function editarItem(item) {
+	function editarItemAssistir(item) {
 		navigation.navigate('Formulário', item);
 	}
 
 	return (
 		<View style={styles.itemsContainer}>
-			<Text>{item.nomeAssistido}</Text>
-			<Text>{item.notaAssistido}</Text>
-			<Text>{item.dataAssistido}</Text>
+			<Text>{item.nomeAssistir}</Text>
 			<View>
 				<TouchableOpacity onPress={() => alertConfirma(item)}>
 					<Text>Deletar</Text>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => editarItem(item)}>
+				<TouchableOpacity onPress={() => editarItemAssistir(item)}>
 					<Text>Editar</Text>
 				</TouchableOpacity>
 			</View>

@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { View, Text, ScrollView } from "react-native";
 import styles from "./Estilos";
 import ItemListaAssistidos from "./ItemListaAssistidos";
-import { getLista } from "./dados";
+import { getListaAssistido } from "./dados";
 
 export default function ListaAssistidos(props) {
 	const [itens, setItens] = useState([]);
 
 	useEffect(() => {
-		getLista().then((lista) => setItens(lista))
+		getListaAssistido().then((lista) => setItens(lista))
 	}, [itens, props])
 
 	return (
