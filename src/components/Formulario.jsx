@@ -1,19 +1,17 @@
 import { Text, TouchableOpacity, View, TextInput } from "react-native";
 import * as React from 'react';
 import { RadioButton } from 'react-native-paper';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from "./Estilos";
 
 import { useEffect, useState } from "react";
 import { salvarItemAssistidos, editarItemAssistido } from "./dados";
-import RNDateTimePicker from "@react-native-community/datetimepicker";
 
 export default function Formulario({ navigation, route }) {
 
 	const editMode = Boolean(route.params);
 	const editItem = route.params;
 
-	const [checked, setChecked] = React.useState('');
+	const [checked, setChecked] = React.useState('Assistido');
 	const [nome, setNome] = useState(editMode ? editItem.nome : '')
 	const [data, setData] = useState(editMode ? Date(editItem.data) : '')
 	const [nota, setNota] = useState(editMode ? String(editItem.nota) : '')
@@ -46,67 +44,97 @@ export default function Formulario({ navigation, route }) {
 		navigation.navigate('Lista de Assistidos', itemLista);
 	}
 
-	return (
-		<View>
-
-			<View style={styles.containerLogo}>
-				<Text style={styles.logo}> MOVIES.LOG </Text>
-			</View>
-
+	if (checked === 'Assistido') {
+		return (
 			<View>
 
-				{/* 'Assistido ou Para assistir':
-					value não aparece
-				*/}
+				<View style={styles.containerLogo}>
+					<Text style={styles.logo}> MOVIES.LOG </Text>
+				</View>
 
-				<RadioButton
-					value="Assistido"
-					status={checked === 'Assistido' ? 'checked' : 'unchecked'}
-					onPress={() => setChecked('Assistido')}
-				/>
-				<RadioButton
-					value="Para assistir"
-					status={checked === 'Para assistir' ? 'checked' : 'unchecked'}
-					onPress={() => setChecked('Para assistir')}
-				/>
+				<View>
 
-				<TextInput
-					placeholder="Nome do filme"
-					value={nome}
-					onChangeText={(valor) => { setNome(valor) }}
-				/>
+					<RadioButton.Item
+						value='Assistido'
+						label='Assistido'
+						status={checked === 'Assistido' ? 'checked' : 'unchecked'}
+						onPress={() => setChecked('Assistido')}
+					/>
+					<RadioButton.Item
+						value='Para assistir'
+						label='Para assistir'
+						status={checked === 'Para assistir' ? 'checked' : 'unchecked'}
+						onPress={() => setChecked('Para assistir')}
+					/>
 
-				{/* 'Data em que assistiu':
-					aparecer somente se o usuário selecionar 'Assistido' 
-					input para data apresenta alguns problemas:
-						formatação errada
-						valor não é o inserido pelo usuário
-				*/}
+					<TextInput
+						placeholder="Nome do filme"
+						value={nome}
+						onChangeText={(valor) => { setNome(valor) }}
+					/>
 
-				<Text> Data em que assistiu: </Text>
-				<RNDateTimePicker
-					mode="date"
-					value={new Date()}
-					maximumDate={new Date()}
-					dateFormat="day month year"
-				/>
+					{/* 'Data em que assistiu':
+						aparecer somente se o usuário selecionar 'Assistido' 
+						input para data apresenta alguns problemas:
+							formatação errada
+							valor não é o inserido pelo usuário
+					*/}
 
-				{/* 'Nota':
-					aparecer somente se o usuário selecionar 'Assistido' 
-					adicionar img de 5 estrelas
-					cada estrela terá um id, para identificar a nota passada pelo usuário
-				*/}
-				<TextInput
-					placeholder="Nota"
-					keyboardType="numeric"
-					value={nota}
-					onChangeText={setNota}
-				/>
+					<Text> Data em que assistiu: </Text>
 
-				<TouchableOpacity onPress={handleButtonPress}>
-					{!editMode ? <Text>Salvar</Text> : <Text>Alterar</Text>}
-				</TouchableOpacity>
+
+					{/* 'Nota':
+						aparecer somente se o usuário selecionar 'Assistido' 
+						adicionar img de 5 estrelas
+						cada estrela terá um id, para identificar a nota passada pelo usuário
+					*/}
+					<TextInput
+						placeholder="Nota"
+						keyboardType="numeric"
+						value={nota}
+						onChangeText={setNota}
+					/>
+
+					<TouchableOpacity onPress={handleButtonPress}>
+						{!editMode ? <Text>Salvar</Text> : <Text>Alterar</Text>}
+					</TouchableOpacity>
+				</View>
 			</View>
-		</View>
-	);
+		);
+	} else if (checked === 'Para assistir') {
+		return (
+			<View>
+
+				<View style={styles.containerLogo}>
+					<Text style={styles.logo}> MOVIES.LOG </Text>
+				</View>
+
+				<View>
+
+					<RadioButton.Item
+						value='Assistido'
+						label='Assistido'
+						status={checked === 'Assistido' ? 'checked' : 'unchecked'}
+						onPress={() => setChecked('Assistido')}
+					/>
+					<RadioButton.Item
+						value='Para assistir'
+						label='Para assistir'
+						status={checked === 'Para assistir' ? 'checked' : 'unchecked'}
+						onPress={() => setChecked('Para assistir')}
+					/>
+
+					<TextInput
+						placeholder="Nome do filme"
+						value={nome}
+						onChangeText={(valor) => { setNome(valor) }}
+					/>
+
+					<TouchableOpacity onPress={handleButtonPress}>
+						{!editMode ? <Text>Salvar</Text> : <Text>Alterar</Text>}
+					</TouchableOpacity>
+				</View>
+			</View>
+		);
+	}
 }
