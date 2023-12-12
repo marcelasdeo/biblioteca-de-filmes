@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View, Image } from "react-native";
 import styles from "./Estilos";
 import { deletarItemAssistido } from "./dados"
 
-export default function ItemListaAssistidos({ item, navigation }) {
+export default function ItemListaAssistidos({ item, dados, navigation }) {
 
 	function alertConfirma(item) {
 
@@ -37,11 +37,11 @@ export default function ItemListaAssistidos({ item, navigation }) {
 			<Image
 				style={styles.poster}
 				source={{
-					uri: `https://image.tmdb.org/t/p/w500${item.poster}`,
+					uri: `https://image.tmdb.org/t/p/w500${dados.poster}`,
 				}}
 			/>
-			<Text>{item.nome}</Text>
-			<Text>{item.genero}</Text>
+			<Text>{dados.nome}</Text>
+			<Text>{dados.genero}</Text>
 			<Text>{item.notaAssistido}</Text>
 			<Text>{item.dataAssistido}</Text>
 			<View>
