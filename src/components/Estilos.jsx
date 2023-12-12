@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	logo: {
+		textAlign: "center",
 		color: "black",
 		fontFamily: 'Futura-CondensedExtraBold',
 		fontSize: 28,
@@ -9,21 +10,37 @@ const styles = StyleSheet.create({
 		marginTop: 18,
 		marginBottom: 18,
 		letterSpacing: 10,
-
-	},
-	titulo: {
-		color: "black",
-		fontFamily: "Futura-CondensedExtraBold",
-		fontSize: 20,
-		fontWeight: "bold",
-		marginTop: 30,
-		marginBottom: 20,
+		textAlign: "center",
 	},
 	containerLogo: {
-		backgroundColor: '#F1B187',
+		backgroundColor: '#D3B8F5',
 		marginTop: 0,
 		textAlign: 'center',
 	},
+
+	titulo: {
+		textAlign: "center",
+		color: "black",
+		fontFamily: "Futura-CondensedExtraBold",
+		fontSize: 25,
+		marginTop: 30,
+		marginBottom: 20,
+	},
+
+	telaInicial: {
+		backgroundColor: "#D3E9F5",
+		height: "100vh",
+		width: "100vw",
+	},
+	textoTelaInicial: {
+		textAlign: "center",
+		color: "black",
+		fontSize: 20,
+	},
+	containerTelaInicial: {
+		marginTop: "30%",
+	},
+
 	title: {
 		fontWeight: "bold",
 		letterSpacing: 5,

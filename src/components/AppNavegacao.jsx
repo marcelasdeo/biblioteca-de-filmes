@@ -14,7 +14,15 @@ const Drawer = createDrawerNavigator();
 export default function AppNavegacao() {
     return (
         <NavigationContainer>
-            <Drawer.Navigator initialRouteName="Tela inicial">
+            <Drawer.Navigator 
+                initialRouteName="Tela inicial"
+                screenOptions={{
+                    drawerStyle: {
+                      backgroundColor: '#c6cbef',
+                      width: 240,
+                    },
+                  }}
+            >
                 <Drawer.Screen name="Tela inicial" component={TelaInicial} />
                 <Drawer.Screen name="Formulário" component={Formulario} />
                 <Drawer.Screen name="Assistidos" component={ListaAssistidos} />
