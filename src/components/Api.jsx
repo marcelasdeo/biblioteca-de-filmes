@@ -14,7 +14,7 @@ export async function getFilmeId(titulo) {
 }
 
 export async function getDadosFilme(id) {
-    const url = `https://api.themoviedb.org/3/movie/${id}`
+    const url = `https://api.themoviedb.org/3/movie/${id}?language=pt-br`
 
     const response = await fetch(url, options)
     const data = await response.json()

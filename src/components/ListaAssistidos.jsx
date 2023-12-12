@@ -3,12 +3,19 @@ import { View, Text, ScrollView } from "react-native";
 import styles from "./Estilos";
 import ItemListaAssistidos from "./ItemListaAssistidos";
 import { getListaAssistido } from "./dados";
+import { getDadosFilme } from "./Api";
 
 export default function ListaAssistidos(props) {
 	const [itens, setItens] = useState([]);
 
 	useEffect(() => {
-		getListaAssistido().then((lista) => setItens(lista))
+		getListaAssistido().then( async (lista) => {
+			const aux = []
+			for (let i of lista) {
+				aux.push(await getDadosFilme(i.id))
+			}
+			setItens(aux)
+		})
 	}, [itens, props])
 
 	return (

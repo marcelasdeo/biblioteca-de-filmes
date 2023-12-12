@@ -31,9 +31,11 @@ export default function Formulario({ navigation, route }) {
 		[editItem]);
 
 	const handleButtonPressAssistido = async () => {
+		const id = await getFilmeId(nomeAssistido)
+
 		if (checked === 'Assistido') {
 			const itemListaAssistido = {
-				id: new Date().getTime(),
+				id: id,
 				nomeAssistido: nomeAssistido,
 				dataAssistido: Date(dataAssistido),
 				notaAssistido: parseInt(notaAssistido),

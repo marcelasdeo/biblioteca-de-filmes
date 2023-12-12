@@ -28,7 +28,7 @@ export default function ItemListaAssistir({ item, navigation }) {
 
 	}
 
-	function editarItemAssistir(item) {
+	function editarItem(item) {
 		navigation.navigate('Formulário', item);
 	}
 
@@ -46,7 +46,7 @@ export default function ItemListaAssistir({ item, navigation }) {
 				<TouchableOpacity onPress={() => alertConfirma(item)}>
 					<Text>Deletar</Text>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => editarItemAssistir(item)}>
+				<TouchableOpacity onPress={() => editarItem(item)}>
 					<Text>Editar</Text>
 				</TouchableOpacity>
 			</View>
