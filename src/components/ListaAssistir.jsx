@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Image } from "react-native";
 import styles from "./Estilos";
 import ItemListaAssistir from "./ItemListaAssistir";
 import { getListaAssistir } from "./dados";
+import { getDadosFilme } from "./Api";
 
 export default function ListaAssistir(props) {
 	const [itens, setItens] = useState([]);
 
-	useEffect(() => {
-		getListaAssistir().then((lista) => setItens(lista))
+	useEffect ( () => {
+		getListaAssistir().then( async (lista) => {
+			const aux = []
+			for (let i of lista) {
+				console.log(i)
+				aux.push(await getDadosFilme(i.id))
+			}
+			setItens(aux)
+		})
 	}, [itens, props])
 
 	return (
@@ -22,7 +30,7 @@ export default function ListaAssistir(props) {
 
 			<ScrollView
 				contentContainerStyle={styles.itemsContainer}
-			>
+			>{console.log(itens)}
 				{itens.map((item) => (
 					<ItemListaAssistir key={item.id} item={item} navigation={props.navigation} />
 				))}

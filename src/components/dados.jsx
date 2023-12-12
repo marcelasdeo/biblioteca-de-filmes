@@ -82,6 +82,7 @@ export async function editarItemAssistir(item) {
 export async function getListaAssistir() {
 	try {
 		const dados = await AsyncStorage.getItem("listaAssistir")
+		console.log(dados)
 		return dados ? JSON.parse(dados) : []
 	} catch (e) {
 		console.log(e)

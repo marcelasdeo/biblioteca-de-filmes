@@ -49,6 +49,10 @@ const styles = StyleSheet.create({
 		width: "100%",
 		padding: 5
 	},
+	poster: {
+		width: 80,
+		height: 120,
+	},
 });
 
 export default styles;

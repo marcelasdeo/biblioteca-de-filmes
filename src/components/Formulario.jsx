@@ -6,6 +6,7 @@ import styles from "./Estilos";
 import { useEffect, useState } from "react";
 import { salvarItemAssistido, editarItemAssistido } from "./dados";
 import { salvarItemAssistir, editarItemAssistir } from "./dados";
+import { getFilmeId } from "./Api";
 
 export default function Formulario({ navigation, route }) {
 
@@ -53,9 +54,11 @@ export default function Formulario({ navigation, route }) {
 	}
 
 	const handleButtonPressAssistir = async () => {
+		const id = await getFilmeId(nomeAssistir)
+		
 		if (checked === 'Assistir') {
 			const itemListaAssistir = {
-				id: new Date().getTime(),
+				id: id,
 				nomeAssistir: nomeAssistir,
 			}
 

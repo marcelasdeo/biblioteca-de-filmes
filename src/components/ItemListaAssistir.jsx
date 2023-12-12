@@ -1,5 +1,5 @@
 import { Alert } from "react-native";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View, Image } from "react-native";
 import styles from "./Estilos";
 import { deletarItemAssistir } from "./dados"
 
@@ -34,7 +34,14 @@ export default function ItemListaAssistir({ item, navigation }) {
 
 	return (
 		<View style={styles.itemsContainer}>
-			<Text>{item.nomeAssistir}</Text>
+			<Image
+				style={styles.poster}
+				source={{
+					uri: `https://image.tmdb.org/t/p/w500${item.poster}`,
+				}}
+			/>
+			<Text>{item.nome}</Text>
+			<Text>{item.genero}</Text>
 			<View>
 				<TouchableOpacity onPress={() => alertConfirma(item)}>
 					<Text>Deletar</Text>

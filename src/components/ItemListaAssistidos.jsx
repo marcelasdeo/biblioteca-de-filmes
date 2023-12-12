@@ -1,5 +1,5 @@
 import { Alert } from "react-native";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View, Image } from "react-native";
 import styles from "./Estilos";
 import { deletarItemAssistido } from "./dados"
 
