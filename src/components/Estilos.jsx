@@ -3,45 +3,55 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 	logo: {
 		color: "black",
-		fontFamily: 'Futura-CondensedExtraBold',
 		fontSize: 28,
 		fontWeight: "bold",
 		marginTop: 18,
 		marginBottom: 18,
 		letterSpacing: 10,
-
-	},
-	titulo: {
-		color: "black",
-		fontFamily: "Futura-CondensedExtraBold",
-		fontSize: 20,
-		fontWeight: "bold",
-		marginTop: 30,
-		marginBottom: 20,
+		textAlign: "center",
 	},
 	containerLogo: {
 		backgroundColor: '#F1B187',
 		marginTop: 0,
-		textAlign: 'center',
 	},
-	title: {
+
+	// tela inicial:
+	tituloInicial: {
+		color: "black",
+		fontSize: 25,
 		fontWeight: "bold",
-		letterSpacing: 5,
-		lineHeight: 44,
-	},
-	scrollContainer: {
 		textAlign: "center",
 	},
+	textoInicial: {
+		color: "black",
+		fontSize: 18,
+		marginTop: 10,
+		textAlign: "center",
+	},
+	containerInicial: {
+		marginTop: 160,
+	},
+
+	//listas
+	tituloLista: {
+		textAlign: "center",
+		fontSize: 24,
+		marginTop: 10,
+		fontWeight: "bold",
+	},
 	itemsContainer: {
-		margin: 10,
-		padding: 20,
+		margin: 20,
+		padding: 5,
 		borderRadius: 12,
-		alignItems: "stretch",
 		textAlign: "center",
 		backgroundColor: '#FFEDE2',
 		borderWidth: 2,
 		borderColor: 'F1B187',
 	},
+	containerDados: {
+		flexDirection: "row",
+	},
+
 	container: {
 		backgroundColor: "#fdfdfd",
 		marginTop: 10,
