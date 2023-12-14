@@ -12,7 +12,6 @@ export default function ListaAssistir(props) {
 		getListaAssistir().then( async (lista) => {
 			const aux = []
 			for (let i of lista) {
-				console.log(i)
 				aux.push(await getDadosFilme(i.id))
 			}
 			setItens(aux)
@@ -30,7 +29,7 @@ export default function ListaAssistir(props) {
 
 			<ScrollView
 				contentContainerStyle={styles.itemsContainer}
-			>{console.log(itens)}
+			>
 				{itens.map((item) => (
 					<ItemListaAssistir key={item.id} item={item} navigation={props.navigation} />
 				))}
