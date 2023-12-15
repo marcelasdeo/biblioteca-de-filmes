@@ -9,7 +9,7 @@ export default function TelaInicial() {
                 <Text style={styles.logo}> MOVIES.LOG </Text>
             </View>
             <View style={styles.containerTelaInicial}>
-                <Text style={styles.titulo}> O que tem visto? </Text>
+                <Text style={styles.tituloInicial}> O que tem visto? </Text>
                 <Text style={styles.textoTelaInicial}> Aqui você pode organizar todos seus filmes, assistidos ou para assistir. </Text>
             </View>
         </View>

@@ -33,22 +33,26 @@ export default function ItemListaAssistir({ item, navigation }) {
 	}
 
 	return (
-		<View style={styles.itemsContainer}>
-			<Image
-				style={styles.poster}
-				source={{
-					uri: `https://image.tmdb.org/t/p/w500${item.poster}`,
-				}}
-			/>
-			<Text>{item.nome}</Text>
-			<Text>{item.genero}</Text>
-			<View>
-				<TouchableOpacity onPress={() => alertConfirma(item)}>
-					<Text>Deletar</Text>
-				</TouchableOpacity>
-				<TouchableOpacity onPress={() => editarItem(item)}>
-					<Text>Editar</Text>
-				</TouchableOpacity>
+		<View style={styles.containerItens}>
+			<View style={styles.containerDados}>
+				<View>
+					<Image
+						style={styles.poster}
+						source={{
+							uri: `https://image.tmdb.org/t/p/w500${item.poster}`,
+						}}
+					/>
+				</View>
+				<View>
+					<Text style={styles.textoLista}>{item.nome}</Text>
+					<Text style={styles.textoLista}>{item.genero}</Text>
+					<TouchableOpacity onPress={() => alertConfirma(item)}>
+						<Text>Deletar</Text>
+					</TouchableOpacity>
+					<TouchableOpacity onPress={() => editarItem(item)}>
+						<Text>Editar</Text>
+					</TouchableOpacity>
+				</View>
 			</View>
 		</View>
 	);

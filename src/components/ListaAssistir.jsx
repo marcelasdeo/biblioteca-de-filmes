@@ -9,7 +9,7 @@ export default function ListaAssistir(props) {
 	const [itens, setItens] = useState([]);
 
 	useEffect(() => {
-		getListaAssistir().then( async (lista) => {
+		getListaAssistir().then(async (lista) => {
 			const aux = []
 			for (let i of lista) {
 				aux.push(await getDadosFilme(i.id))
@@ -25,15 +25,15 @@ export default function ListaAssistir(props) {
 				<Text style={styles.logo}> MOVIES.LOG </Text>
 			</View>
 
-			<Text style={styles.title}> Filmes Para Assistir </Text>
+			<ScrollView contentContainerStyle={styles.containerItens} >
 
-			<ScrollView
-				contentContainerStyle={styles.itemsContainer}
-			>
+				<Text style={styles.tituloLista}> Filmes Para Assistir </Text>
+
 				{itens.map((item) => (
 					<ItemListaAssistir key={item.id} item={item} navigation={props.navigation} />
 				))}
 				{itens.length == 0 && <Text style={styles.text}>Lista Vazia</Text>}
+
 			</ScrollView>
 		</View>
 	);

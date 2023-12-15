@@ -4,9 +4,8 @@ const styles = StyleSheet.create({
 	logo: {
 		textAlign: "center",
 		color: "black",
-		fontFamily: 'Futura-CondensedExtraBold',
 		fontSize: 28,
-		fontWeight: "bold",
+		fontWeight: "800",
 		marginTop: 18,
 		marginBottom: 18,
 		letterSpacing: 10,
@@ -15,22 +14,21 @@ const styles = StyleSheet.create({
 	containerLogo: {
 		backgroundColor: '#D3B8F5',
 		marginTop: 0,
-		textAlign: 'center',
 	},
 
-	titulo: {
-		textAlign: "center",
-		color: "black",
-		fontFamily: "Futura-CondensedExtraBold",
-		fontSize: 25,
-		marginTop: 30,
-		marginBottom: 20,
-	},
-
+	//tela inicial
 	telaInicial: {
 		backgroundColor: "#D3E9F5",
-		height: "100vh",
-		width: "100vw",
+		height: "100%",
+		width: "100%",
+	},
+	tituloInicial: {
+		textAlign: "center",
+		color: "black",
+		fontSize: 25,
+		fontWeight: "600",
+		marginTop: 30,
+		marginBottom: 20,
 	},
 	textoTelaInicial: {
 		textAlign: "center",
@@ -38,37 +36,34 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 	},
 	containerTelaInicial: {
-		marginTop: "30%",
+		marginTop: 150,
 	},
 
-	title: {
-		fontWeight: "bold",
-		letterSpacing: 5,
-		lineHeight: 44,
-	},
-	scrollContainer: {
+	//listas
+	tituloLista: {
 		textAlign: "center",
+		fontSize: 25,
+		marginBottom: 5,
+		marginTop: 5,
 	},
-	itemsContainer: {
-		margin: 10,
-		padding: 20,
+	containerItens: {
+		margin: 15,
+		padding: 10,
 		borderRadius: 12,
-		alignItems: "stretch",
-		textAlign: "center",
 		backgroundColor: '#FFEDE2',
 		borderWidth: 2,
 		borderColor: 'F1B187',
 	},
-	container: {
-		backgroundColor: "#fdfdfd",
-		marginTop: 10,
-		borderRadius: 10,
-		width: "100%",
-		padding: 5
+	containerDados: {
+		flexDirection: "row",
 	},
 	poster: {
-		width: 80,
-		height: 120,
+		width: 100,
+		height: 140,
+		margin: 5,
+	},
+	textoLista: {
+		textAlign: "justify",
 	},
 });
 
