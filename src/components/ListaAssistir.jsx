@@ -25,15 +25,15 @@ export default function ListaAssistir(props) {
 				<Text style={styles.logo}> MOVIES.LOG </Text>
 			</View>
 
-			<ScrollView
-				contentContainerStyle={styles.itemsContainer}
-			>
-			<Text style={styles.tituloLista}> Filmes Para Assistir </Text>
+			<ScrollView contentContainerStyle={styles.containerItens} >
+
+				<Text style={styles.tituloLista}> Filmes Para Assistir </Text>
 
 				{itens.map((item) => (
 					<ItemListaAssistir key={item.id} item={item} navigation={props.navigation} />
 				))}
 				{itens.length == 0 && <Text style={styles.text}>Lista Vazia</Text>}
+
 			</ScrollView>
 		</View>
 	);

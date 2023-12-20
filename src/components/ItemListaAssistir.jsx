@@ -33,7 +33,7 @@ export default function ItemListaAssistir({ item, navigation }) {
 	}
 
 	return (
-		<View style={styles.itemsContainer}>
+		<View style={styles.containerItens}>
 			<View style={styles.containerDados}>
 				<View>
 					<Image
@@ -44,8 +44,8 @@ export default function ItemListaAssistir({ item, navigation }) {
 					/>
 				</View>
 				<View>
-					<Text>{item.nome}</Text>
-					<Text>{item.genero}</Text>
+					<Text style={styles.textoLista}>{item.nome}</Text>
+					<Text style={styles.textoLista}>{item.genero}</Text>
 					<TouchableOpacity onPress={() => alertConfirma(item)}>
 						<Text>Deletar</Text>
 					</TouchableOpacity>
