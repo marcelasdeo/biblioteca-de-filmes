@@ -1,5 +1,6 @@
 import { Alert } from "react-native";
 import { Text, TouchableOpacity, View, Image } from "react-native";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import styles from "./Estilos";
 import { deletarItemAssistir } from "./dados"
 
@@ -7,20 +8,17 @@ export default function ItemListaAssistir({ item, navigation }) {
 
 	function alertConfirma(item) {
 
-		Alert.alert(
-			'Excluir',
-			'Tem certeza que deseja fazer a exclusão?',
-			[
-				{
-					text: 'Sim',
-					onPress: () => deletarItemAssistir(item),
-					style: 'default',
-				},
-				{
-					text: 'Não',
-					style: 'cancel',
-				},
-			],
+		Alert.alert('Deletar filme', `Deseja deletar ${item.nome}?`, [
+			{
+				text: 'Cancelar',
+				style: 'cancel',
+			},
+			{
+				text: 'Deletar',
+				onPress: () => deletarItemAssistir(item),
+				style: 'default',
+			},
+		],
 			{
 				cancelable: true,
 			},
@@ -44,14 +42,24 @@ export default function ItemListaAssistir({ item, navigation }) {
 					/>
 				</View>
 				<View>
-					<Text style={styles.textoLista}>{item.nome}</Text>
+					<Text style={styles.textoFilmeAssistir}>{item.nome}</Text>
 					<Text style={styles.textoLista}>{item.genero}</Text>
-					<TouchableOpacity onPress={() => alertConfirma(item)}>
-						<Text>Deletar</Text>
-					</TouchableOpacity>
-					<TouchableOpacity onPress={() => editarItem(item)}>
-						<Text>Editar</Text>
-					</TouchableOpacity>
+					<View style={styles.containerBotoesAssistir}>
+						<TouchableOpacity onPress={() => alertConfirma(item)}>
+							<MaterialCommunityIcons
+								name={"delete"}
+								size={30}
+								color={"red"}
+							/>
+						</TouchableOpacity>
+						<TouchableOpacity onPress={() => editarItem(item)}>
+							<MaterialCommunityIcons
+								name={"pencil"}
+								size={30}
+								color={"green"}
+							/>
+						</TouchableOpacity>
+					</View>
 				</View>
 			</View>
 		</View>

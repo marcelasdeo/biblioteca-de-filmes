@@ -20,7 +20,6 @@ export default function ListaAssistir(props) {
 
 	return (
 		<View>
-
 			<View style={styles.containerLogo}>
 				<Text style={styles.logo}> MOVIES.LOG </Text>
 			</View>
@@ -32,7 +31,7 @@ export default function ListaAssistir(props) {
 				{itens.map((item) => (
 					<ItemListaAssistir key={item.id} item={item} navigation={props.navigation} />
 				))}
-				{itens.length == 0 && <Text style={styles.text}>Lista Vazia</Text>}
+				{itens.length == 0 && <Text style={styles.texto}>Lista Vazia</Text>}
 
 			</ScrollView>
 		</View>

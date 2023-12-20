@@ -10,7 +10,7 @@ export default function TelaInicial() {
             </View>
             <View style={styles.containerTelaInicial}>
                 <Text style={styles.tituloInicial}> O que tem visto? </Text>
-                <Text style={styles.textoTelaInicial}> Aqui você pode organizar todos seus filmes, assistidos ou para assistir. </Text>
+                <Text style={styles.texto}> Aqui você pode organizar todos seus filmes, assistidos ou para assistir. </Text>
             </View>
         </View>
     )
