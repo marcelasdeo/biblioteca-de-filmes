@@ -12,9 +12,8 @@ export default function Formulario({ navigation, route }) {
 	const editMode = Boolean(route.params);
 	const editItem = route.params;
 
-	const currentChecked = route.params.checked //?? 'Assistido';
-
-	const [checked, setChecked] = useState(currentChecked);
+	// const currentChecked = route.params.checked //?? 'Assistido';
+	const [checked, setChecked] = useState('Assistido');
 
 	const [nomeAssistido, setNomeAssistido] = useState(editMode ? editItem.nomeAssistido : '')
 	// const [dataAssistido, setDataAssistido] = useState(editMode ? Date(editItem.dataAssistido) : '')
