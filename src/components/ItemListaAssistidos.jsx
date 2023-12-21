@@ -25,9 +25,8 @@ export default function ItemListaAssistidos({ item, dados, navigation }) {
 		);
 
 	}
-
 	function editarItem(item) {
-		navigation.navigate('Formulário', item);
+		navigation.navigate('Formulário', {checked: 'Assistido', ...item});
 	}
 
 	return (

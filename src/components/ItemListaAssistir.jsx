@@ -27,7 +27,7 @@ export default function ItemListaAssistir({ item, dados, navigation }) {
 	}
 
 	function editarItem(item) {
-		navigation.navigate('Formulário', item);
+		navigation.navigate('Formulário', {checked : 'Assistir', ...item});
 	}
 
 	return (
