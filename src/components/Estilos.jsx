@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		backgroundColor: "#D3E9F5",
 		borderWidth: 2,
-		borderColor: 'F1B187',
+		borderColor: "black",
 	},
 	containerDados: {
 		flexDirection: "row",
@@ -65,29 +65,57 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		marginTop: 35,
 		fontWeight: "600",
-		width: 180,
+		width: 160,
 	},
 	textoFilmeAssistido: {
 		textAlign: "center",
 		fontSize: 18,
-		marginTop: 20,
+		marginTop: 30,
 		fontWeight: "600",
-		width: 180,
+		width: 160,
 	},
 	textoLista: {
 		textAlign: "center",
 		fontSize: 16,
-		width: 180,
+		width: 160,
 	},
 	containerBotoesAssistir: {
 		flexDirection: "row",
 		alignSelf: "center",
-		marginTop: 30,
+		marginTop: 15,
 	},
 	containerBotoesAssistido: {
 		flexDirection: "row",
 		alignSelf: "center",
 		marginTop: 15,
+	},
+
+	//form
+	telaForm: {
+		backgroundColor: "#D3E9F5",
+		height: "100%",
+		width: "100%",
+	},
+	containerForm: {
+		marginTop: 100,
+	},
+	textInput:{
+		alignSelf: "center",
+		margin: 20,
+		fontSize: 18,
+	},
+	radioInput: {
+		marginLeft: 80,
+		marginRight: 80,
+		fontSize: 20,
+	},
+	formBtn: {
+		alignSelf: "center",
+		margin: 20,
+		backgroundColor: "#D3B8F5",
+		padding: 5,
+		borderRadius: 5,
+		fontSize: 18,
 	},
 
 	//geral

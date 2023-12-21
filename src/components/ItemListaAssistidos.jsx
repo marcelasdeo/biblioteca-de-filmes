@@ -51,14 +51,14 @@ export default function ItemListaAssistidos({ item, dados, navigation }) {
 							<MaterialCommunityIcons
 								name={"delete"}
 								size={30}
-								color={"red"}
+								color={"#D3B8F5"}
 							/>
 						</TouchableOpacity>
 						<TouchableOpacity onPress={() => editarItem(item)}>
 							<MaterialCommunityIcons
 								name={"pencil"}
 								size={30}
-								color={"green"}
+								color={"#D3B8F5"}
 							/>
 						</TouchableOpacity>
 					</View>

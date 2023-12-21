@@ -4,11 +4,11 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import styles from "./Estilos";
 import { deletarItemAssistir } from "./dados"
 
-export default function ItemListaAssistir({ item, navigation }) {
+export default function ItemListaAssistir({ item, dados, navigation }) {
 
 	function alertConfirma(item) {
 
-		Alert.alert('Deletar filme', `Deseja deletar ${item.nome}?`, [
+		Alert.alert('Deletar filme', `Deseja deletar ${dados.nome}?`, [
 			{
 				text: 'Cancelar',
 				style: 'cancel',
@@ -37,26 +37,26 @@ export default function ItemListaAssistir({ item, navigation }) {
 					<Image
 						style={styles.poster}
 						source={{
-							uri: `https://image.tmdb.org/t/p/w500${item.poster}`,
+							uri: `https://image.tmdb.org/t/p/w500${dados.poster}`,
 						}}
 					/>
 				</View>
 				<View>
-					<Text style={styles.textoFilmeAssistir}>{item.nome}</Text>
-					<Text style={styles.textoLista}>{item.genero}</Text>
+					<Text style={styles.textoFilmeAssistir}>{dados.nome}</Text>
+					<Text style={styles.textoLista}>{dados.genero}</Text>
 					<View style={styles.containerBotoesAssistir}>
 						<TouchableOpacity onPress={() => alertConfirma(item)}>
 							<MaterialCommunityIcons
 								name={"delete"}
 								size={30}
-								color={"red"}
+								color={"#D3B8F5"}
 							/>
 						</TouchableOpacity>
 						<TouchableOpacity onPress={() => editarItem(item)}>
 							<MaterialCommunityIcons
 								name={"pencil"}
 								size={30}
-								color={"green"}
+								color={"#D3B8F5"}
 							/>
 						</TouchableOpacity>
 					</View>
